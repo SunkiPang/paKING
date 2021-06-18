@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'main_page.dart';
+import 'package:test_flutter/splash_screen.dart';
+import 'package:provider/provider.dart';
+import 'home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Google Maps Demo',
-      home: MainPage(),
+      home: SplashScreen(),
       theme: ThemeData(
         primaryColor: Colors.deepPurple,
       ),
