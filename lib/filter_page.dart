@@ -23,7 +23,7 @@ class _FilterPageState extends State<FilterPage> {
           children: [
             Text(
               "검색 필터",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
             ),
             SizedBox(
               height: size.height * 0.04,
