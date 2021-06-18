@@ -1,8 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyPage extends StatelessWidget {
+class MyPage extends StatefulWidget {
   const MyPage({Key? key}) : super(key: key);
+
+  @override
+  _MyPageState createState() => _MyPageState();
+}
+
+class _MyPageState extends State<MyPage> {
+  bool isModify = false;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController carNumController = TextEditingController();
+  TextEditingController phoneNumController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    nameController.text = "김한동";
+    carNumController.text = '1';
+    phoneNumController.text = 'xxxx-xxxx-xxxx';
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,27 +41,54 @@ class MyPage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      isModify ? isModify = false : isModify = true;
+                    });
+                  },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.mode_edit,color: Colors.deepPurple,),
-                        SizedBox(width: 4,),
-                        Text(
-                          "수정",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.deepPurple,
-                            fontWeight: FontWeight.bold
+                    child: isModify
+                        ? Row(
+                            children: [
+                              Icon(
+                                Icons.check,
+                                color: Colors.deepPurple,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                "저장",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.deepPurple,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          )
+                        : Row(
+                            children: [
+                              Icon(
+                                Icons.mode_edit,
+                                color: Colors.deepPurple,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                "수정",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.deepPurple,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
                           ),
-                        )
-                      ],
-                    ),
                   ),
                 ),
               ],
@@ -49,111 +96,132 @@ class MyPage extends StatelessWidget {
             SizedBox(
               height: size.height * 0.04,
             ),
-            Text(
-              "노상주차장",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "도로에 설치된 주차장",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Text(
-              "노외주차장(공영)",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "시, 구 소유 주차장",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Text(
-              "노외주차장(민영)",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "개인소유 주차장",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Text(
-              "부설주차장",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "건물 주차장으로 건물 이용자 위주 개방",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Text(
-              "2부제",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "차 번호 끝자리가 홀수인 차량은 홀수 일에만, \n짝수인 차량은 짝수 일에만 주차 가능",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Text(
-              "5부제 또는 요일제",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "차 번호 끝자리가 월요일은 1, 6인 차량,\n화요일은 2, 7번인 차량, 수요일은 3, 8번인 차량,\n목요일은 4, 9번인 차량, 금요일은 5 또는 0번인 차량은 주차 불가",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Text(
-              "10부제",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "차 번호 끝자리와 날짜의 끝자리 숫자가 같은 날에는 주차 불가",
-              style: TextStyle(fontSize: 14),
-            ),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
-            Divider(),
-            SizedBox(
-              height: size.height * 0.01,
-            ),
+            isModify
+                ? Container(
+                    padding: EdgeInsets.symmetric(horizontal: 9),
+                    child: Column(
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: '성함',
+                          ),
+                          controller: nameController,
+                          onChanged: (text) {
+                            setState(() {
+                              nameController.text = text;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          height: size.height * 0.02,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: '차량번호 끝자리',
+                          ),
+                          controller: carNumController,
+                          onChanged: (text) {
+                            setState(() {
+                              carNumController.text = text;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          height: size.height * 0.02,
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.info),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Text(
+                                  "입력해주신 차량번호 끝자리는 차량 부제가 시행되는 주차장을 필터링하기 위해 사용됨을 알려드립니다."),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                : Container(
+                    padding: EdgeInsets.symmetric(horizontal: 9),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "성함",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              nameController.text,
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: size.height * 0.01,
+                        ),
+                        Divider(),
+                        SizedBox(
+                          height: size.height * 0.01,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "차량번호 끝자리",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              carNumController.text,
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: size.height * 0.01,
+                        ),
+                        Divider(),
+                        SizedBox(
+                          height: size.height * 0.01,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "기기번호",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "xxxx-xxxx-xxxx",
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: size.height * 0.01,
+                        ),
+                        Divider(),
+                        Row(
+                          children: [
+                            Icon(Icons.info),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Text(
+                                  "기기번호는 고객님께서 사용하고 계신 스마트폰 기기의 고유번호이므로 수정이 불가함을 알려드립니다."),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
           ],
         ),
       ),
