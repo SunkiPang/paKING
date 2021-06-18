@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/show_google_map.dart';
-import 'package:test_flutter/start_page.dart';
+import 'package:test_flutter/splash_screen.dart';
 import 'filter_page.dart';
 import 'info_page.dart';
 import 'map_drawer.dart';
 import 'mypage.dart';
 
-class MainPage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  State<MainPage> createState() => MainPageState();
+  State<HomeScreen> createState() => HomeScreenState();
 }
 
-class MainPageState extends State<MainPage> {
+class HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   String userName = "김한동";
 
