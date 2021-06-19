@@ -4,7 +4,7 @@ import 'package:test_flutter/provider/screen_provider.dart';
 import 'package:test_flutter/show_google_map.dart';
 import 'favorite_screen.dart';
 import 'filter_screen.dart';
-import 'info_page.dart';
+import 'info_screen.dart';
 import 'map_drawer.dart';
 import 'mypage.dart';
 
@@ -19,7 +19,7 @@ class HomeScreenState extends State<HomeScreen> {
   List _widgetOptions = [
     ShowGoogleMap(),
     FavoriteScreen(),
-    InfoPage(),
+    InfoScreen(),
     MyPage(),
     FilterScreen(),
   ];
