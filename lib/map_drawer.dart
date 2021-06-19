@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_flutter/provider/screen_provider.dart';
 
 class MapDrawer extends StatelessWidget {
   const MapDrawer({
@@ -10,6 +12,7 @@ class MapDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screen = Provider.of<ScreenProvider>(context);
     return Drawer(
       child: ListView(
         children: [
@@ -35,9 +38,7 @@ class MapDrawer extends StatelessWidget {
             title: Text('홈'),
             leading: Icon(Icons.home),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
+              screen.changeScreen(0);
               Navigator.pop(context);
             },
           ),
@@ -45,9 +46,7 @@ class MapDrawer extends StatelessWidget {
             title: Text('즐겨찾기'),
             leading: Icon(Icons.favorite),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
+              screen.changeScreen(1);
               Navigator.pop(context);
             },
           ),
@@ -55,9 +54,7 @@ class MapDrawer extends StatelessWidget {
             title: Text('안내'),
             leading: Icon(Icons.info),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
+              screen.changeScreen(2);
               Navigator.pop(context);
             },
           ),
@@ -65,9 +62,7 @@ class MapDrawer extends StatelessWidget {
             title: Text('마이페이지'),
             leading: Icon(Icons.person),
             onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
+              screen.changeScreen(3);
               Navigator.pop(context);
             },
           ),
