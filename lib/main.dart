@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/provider/screen_provider.dart';
 import 'package:test_flutter/splash_screen.dart';
 import 'package:provider/provider.dart';
-import 'home_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ScreenProvider()),
+      ],
+      child: MyApp(),
+    ));
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,3 +22,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+

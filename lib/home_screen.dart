@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_flutter/provider/screen_provider.dart';
 import 'package:test_flutter/show_google_map.dart';
-import 'package:test_flutter/splash_screen.dart';
-import 'filter_page.dart';
+import 'favorite_screen.dart';
+import 'filter_screen.dart';
 import 'info_page.dart';
 import 'map_drawer.dart';
 import 'mypage.dart';
@@ -12,18 +14,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
   String userName = "김한동";
 
   List _widgetOptions = [
     ShowGoogleMap(),
-    FilterPage(),
+    FavoriteScreen(),
     InfoPage(),
     MyPage(),
+    FilterScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final screen = Provider.of<ScreenProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("ParKING"),
@@ -41,11 +44,11 @@ class HomeScreenState extends State<HomeScreen> {
         unselectedItemColor: Colors.white.withOpacity(.60),
         selectedFontSize: 14,
         unselectedFontSize: 14,
-        currentIndex: _selectedIndex,
+        currentIndex: screen.screenIndex,
         //현재 선택된 Index
         onTap: (int index) {
           setState(() {
-            _selectedIndex = index;
+            screen.changeScreen(index);
           });
         },
         items: [
@@ -66,7 +69,7 @@ class HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: MapDrawer(userName: userName),
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: _widgetOptions.elementAt(screen.screenIndex),
     );
   }
 }
