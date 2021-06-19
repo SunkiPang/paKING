@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FilterPage extends StatefulWidget {
-  const FilterPage({Key? key}) : super(key: key);
+class FilterScreen extends StatefulWidget {
+  const FilterScreen({Key? key}) : super(key: key);
 
   @override
-  _FilterPageState createState() => _FilterPageState();
+  _FilterScreenState createState() => _FilterScreenState();
 }
 
-class _FilterPageState extends State<FilterPage> {
+class _FilterScreenState extends State<FilterScreen> {
   List<bool> _values = [true, true, true, true, true, true];
 
 
