@@ -40,7 +40,7 @@ class SplashScreen extends StatelessWidget {
                   "시작하기",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
+                    color: Color(0xff6200EE),
                     fontSize: 20,
                   ),
                 ),

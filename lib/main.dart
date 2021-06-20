@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Google Maps Demo',
       home: SplashScreen(),
       theme: ThemeData(
-        primaryColor: Colors.deepPurple,
+        primaryColor: Color(0xff6200EE),
       ),
     );
   }

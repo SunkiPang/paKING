@@ -57,7 +57,7 @@ class _MyPageState extends State<MyPage> {
                             children: [
                               Icon(
                                 Icons.check,
-                                color: Colors.deepPurple,
+                                color: Color(0xff6200EE),
                               ),
                               SizedBox(
                                 width: 4,
@@ -66,7 +66,7 @@ class _MyPageState extends State<MyPage> {
                                 "저장",
                                 style: TextStyle(
                                     fontSize: 14,
-                                    color: Colors.deepPurple,
+                                    color: Color(0xff6200EE),
                                     fontWeight: FontWeight.bold),
                               )
                             ],
@@ -75,7 +75,7 @@ class _MyPageState extends State<MyPage> {
                             children: [
                               Icon(
                                 Icons.mode_edit,
-                                color: Colors.deepPurple,
+                                color: Color(0xff6200EE),
                               ),
                               SizedBox(
                                 width: 4,
@@ -84,7 +84,7 @@ class _MyPageState extends State<MyPage> {
                                 "수정",
                                 style: TextStyle(
                                     fontSize: 14,
-                                    color: Colors.deepPurple,
+                                    color: Color(0xff6200EE),
                                     fontWeight: FontWeight.bold),
                               )
                             ],

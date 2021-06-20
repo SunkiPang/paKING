@@ -39,7 +39,7 @@ class HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Color(0xff6200EE),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(.60),
         selectedFontSize: 14,
