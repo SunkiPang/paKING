@@ -58,13 +58,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: size.height * 0.01,
-                        ),
                         Divider(),
-                        SizedBox(
-                          height: size.height * 0.01,
-                        ),
                       ],
                     ),
                   );
