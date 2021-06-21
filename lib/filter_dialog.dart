@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_flutter/provider/screen_provider.dart';
 
 
 final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
   List<bool> _filterValues = [true, true, true, true, true, true];
   Size size = MediaQuery.of(context).size;
+  final screen = Provider.of<ScreenProvider>(context);
 
   return Dialog(
     insetPadding: EdgeInsets.all(20),
@@ -39,11 +42,9 @@ final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Switch(
-                        value: _filterValues[0],
+                        value: screen.getFilterValues(0),
                         onChanged: (bool value) {
-                          setState(() {
-                            _filterValues[0] = value;
-                          });
+                            screen.changeFilterValues(0,value);
                         },
                       ),
                     ],
@@ -57,11 +58,9 @@ final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Switch(
-                        value: _filterValues[1],
+                        value: screen.getFilterValues(1),
                         onChanged: (bool value) {
-                          setState(() {
-                            _filterValues[1] = value;
-                          });
+                          screen.changeFilterValues(1,value);
                         },
                       ),
                     ],
@@ -75,11 +74,9 @@ final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Switch(
-                        value: _filterValues[2],
+                        value: screen.getFilterValues(2),
                         onChanged: (bool value) {
-                          setState(() {
-                            _filterValues[2] = value;
-                          });
+                          screen.changeFilterValues(2,value);
                         },
                       ),
                     ],
@@ -93,11 +90,9 @@ final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Switch(
-                        value: _filterValues[3],
+                        value: screen.getFilterValues(3),
                         onChanged: (bool value) {
-                          setState(() {
-                            _filterValues[3] = value;
-                          });
+                          screen.changeFilterValues(3,value);
                         },
                       ),
                     ],
@@ -117,11 +112,9 @@ final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Switch(
-                        value: _filterValues[4],
+                        value: screen.getFilterValues(4),
                         onChanged: (bool value) {
-                          setState(() {
-                            _filterValues[4] = value;
-                          });
+                          screen.changeFilterValues(4,value);
                         },
                       ),
                     ],
@@ -135,11 +128,9 @@ final Widget filterDialog = StatefulBuilder(builder: (context, setState) {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       Switch(
-                        value: _filterValues[5],
+                        value: screen.getFilterValues(5),
                         onChanged: (bool value) {
-                          setState(() {
-                            _filterValues[5] = value;
-                          });
+                          screen.changeFilterValues(5,value);
                         },
                       ),
                     ],
