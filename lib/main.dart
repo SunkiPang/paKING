@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Google Maps Demo',
       home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xff6200EE),
       ),
