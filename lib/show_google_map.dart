@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:test_flutter/paking_class.dart';
 
+import 'detail_dialog.dart';
 import 'filter_dialog.dart';
 
 class ShowGoogleMap extends StatefulWidget {
@@ -56,7 +57,7 @@ class _ShowGoogleMapState extends State<ShowGoogleMap> {
               onPressed: () {
                 showDialog<void>(
                   context: context,
-                  builder: (context) => filterDialog,
+                  builder: (context) => detailDialog,
                 );
               },
               child: Icon(
